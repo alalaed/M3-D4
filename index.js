@@ -19,9 +19,11 @@ const addCart = () =>{
 const searchQuery = () =>{
     const searched = document.getElementById("searchbar").value
     const booksToBeFiltered = document.getElementsByClassName("cardbody")
+    for (let i =0; i<booksToBeFiltered.length; i++){
     let title = booksToBeFiltered[i].querySelectorAll("h6").innerText
     const Arr = title.filter(searched)
-    loadBooks(Arr)
+    Arr = callback
+    loadBooks(callback)}
     
 }
 
@@ -109,7 +111,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
 
 window.onload = function(){
-    loadBooks()
+    loadBooks(callback)
     searchQuery()
 
 }
